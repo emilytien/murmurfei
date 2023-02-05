@@ -3,6 +3,10 @@ import styled from "styled-components";
 import banner1 from "../img/Homepage_wbFF-05.png";
 import banner2 from "../img/Homepage_pics-03-1.jpg";
 import schedule from "../img/schedule--wb.png";
+import ytPicLarge from "../img/ytPicLarge.jpg";
+import ytPicSmall from "../img/ytPicSmall.png";
+import podcPicLarge from "../img/podcPicLarge.jpg";
+import podcPicSmall from "../img/podcPicSmall.png";
 
 const Section = styled.div`
   & > div {
@@ -107,6 +111,52 @@ const Circle = styled.div`
   }
 `;
 
+const ToYoutube = styled.a`
+  & > .ytPicLarge {
+    display: none;
+  }
+  & > .ytPicSmall {
+    display: block;
+    padding: 20px;
+  }
+  & > img {
+    max-width: 100%;
+  }
+
+  @media screen and (min-width: 767px) {
+    & > .ytPicSmall {
+      display: none;
+    }
+    & > .ytPicLarge {
+      display: block;
+      padding: 20px;
+    }
+  }
+`;
+
+const ToPodcast = styled.a`
+  & > .podcPicLarge {
+    display: none;
+  }
+  & > .podcPicSmall {
+    display: block;
+    padding: 20px;
+  }
+  & > img {
+    max-width: 100%;
+  }
+
+  @media screen and (min-width: 767px) {
+    & > .podcPicSmall {
+      display: none;
+    }
+    & > .podcPicLarge {
+      display: block;
+      padding: 20px;
+    }
+  }
+`;
+
 function Homepage() {
   return (
     <Section>
@@ -152,6 +202,22 @@ function Homepage() {
           </Point>
         </SecondWord>
       </Second>
+      <ToYoutube
+        href="https://www.youtube.com/@user-cn6ii3fi6n/videos"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        <img src={ytPicLarge} alt="" className="ytPicLarge" />
+        <img src={ytPicSmall} alt="" className="ytPicSmall" />
+      </ToYoutube>
+      <ToPodcast
+        href="https://open.spotify.com/show/5vefMq6tUOQjxiZ6gRA9EZ?si=AaAfhevnR5iGeQ-bJr-RTw&nd=1"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        <img src={podcPicLarge} alt="" className="podcPicLarge" />
+        <img src={podcPicSmall} alt="" className="podcPicSmall" />
+      </ToPodcast>
       <div>
         <img src={schedule} alt="" />
       </div>

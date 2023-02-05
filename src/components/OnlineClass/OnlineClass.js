@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as Title } from "../img/HP_wb--08.svg";
-import { useEffect, useState } from "react";
+import YoutubeApi from "../../YoutubeApi.json";
 
 const OnlineClassList = styled.div`
   & > div {
@@ -41,25 +41,58 @@ letter-spacing:3px;
   }
 `;
 
-const API_KEY = "AIzaSyDV-mrTdd4B1-pRQkr1u5xyP5fYY6xMEl";
-const ChannelID = "UCMUnInmOkrWN4gof9KlhNmQ";
+const Youtube = styled.div`
+  display: flex;
+  flex-direction: column;
+  & > div {
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    color: #9e605b;
+    font-weight: 550;
+    & > iframe {
+      margin: 10px 10px;
+      width: 112;
+      height: 63;
+    }
+  }
 
-var fetchUrl = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelID=${ChannelID}&maxResults=10&order=date&key=${API_KEY}`;
+  @media screen and (min-width: 767px) {
+    & > div {
+      font-size: 20px;
+      & > iframe {
+        width: 560px;
+        height: 315px;
+      }
+    }
+  }
+`;
+
+const JoinUs = styled.a`
+  margin: 30px;
+  & > div {
+    height: 40px;
+    width: 100px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #fef4f5;
+    border-radius: 32px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 550;
+    color: #9e605b;
+    margin: auto;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      box-shadow: 5px 3px 1px #9e605b;
+      transform: translate(3px, 3px);
+    }
+  }
+`;
 
 function OnlineClass() {
-  const [allVideos, setAllVideos] = useState([]);
-  useEffect(() => {
-    fetch(fetchUrl)
-      .then((response) => response.json())
-      .then((resJson) => {
-        const result = resJson.items.map((doc) => ({
-          ...doc,
-          Videolink: "https://www.youtube.com/embed/" + doc.id.videoID,
-        }));
-        setAllVideos(result);
-      });
-  });
-  console.log(allVideos);
   return (
     <div>
       <OnlineClassList>
@@ -68,23 +101,27 @@ function OnlineClass() {
           <div>線上影音</div>
         </Svg>
       </OnlineClassList>
-      <div>
-        {allVideos.map((item) => {
-          return (
-            <div>
-              <iframe
-                width="560"
-                height="315"
-                src={item.Videolink}
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </div>
-          );
-        })}
-      </div>
+      <Youtube>
+        {YoutubeApi.map((youtube) => (
+          <div>
+            <iframe
+              src={youtube.url}
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+            <h2>{youtube.title}</h2>
+          </div>
+        ))}
+      </Youtube>
+      <JoinUs
+        href="https://www.youtube.com/@user-cn6ii3fi6n/videos"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        <div>觀看更多➤</div>
+      </JoinUs>
     </div>
   );
 }

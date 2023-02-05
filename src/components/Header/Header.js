@@ -104,12 +104,11 @@ const NavBar = styled.div`
     padding: ${({ fix }) => (fix ? "5px 10px" : "13px 15px")};
     transform: none;
     position: static;
-    transition: 1s;
+
     & > a {
       font-weight: 500;
       height: ${({ fix }) => (fix ? "30px" : "50px")};
       padding: ${({ fix }) => (fix ? "10px 10px" : "16px 15px")};
-      transition: 1s;
     }
   }
 `;

@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import { ReactComponent as Title } from "../img/HP_wb--08.svg";
-import BlogPost from "../../BlogPost.json";
-import { useState, useEffect } from "react";
-import pic from "../img/教師節特輯-1.jpg";
+import jsonData from "../../BlogPost";
+import { Link } from "react-router-dom";
 
 const BlogList = styled.div`
   & > div {
@@ -43,44 +42,72 @@ letter-spacing:3px;
   }
 `;
 
-// function Post({ post }) {
-//   return (
-//     <div>
-//       <div>{post.Title}</div>
-//       <img src={post.img1} alt="" />
-//     </div>
-//   );
-// }
+const List = styled.div`
+  width: 95%;
+  margin: auto;
+  & > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px 0px;
+    margin: 25px 0px;
+    border-bottom: 1.5px solid #d1a390;
+  }
+  @media screen and (min-width: 767px) {
+    width: 60%;
+    & > div {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+`;
+
+const PostTitle = styled(Link)`
+  color: #9c6868;
+  font-weight: 550;
+  font-size: 24px;
+  text-decoration: none;
+`;
+
+const Small = styled.div`
+  color: #827668;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  @media screen and (min-width: 767px) {
+    display: inline-block;
+  }
+`;
+const Author = styled.div`
+  font-size: 16px;
+  padding-right: 15px;
+  @media screen and (min-width: 767px) {
+    padding-bottom: 5px;
+  }
+`;
+const Date = styled.div`
+  font-size: 14px;
+`;
 
 function Blog() {
-  // const [posts, setPosts] = useState([]);
-  // useEffect(() => {
-  //   BlogPost()((posts) => setPosts(posts));
-  // });
-
   return (
     <BlogList>
       <Svg>
         <Title />
         <div>BLOG</div>
       </Svg>
-      {/* <div>
-        {posts.map((post) => {
-          <Post post={post}></Post>;
-        })}
-      </div> */}
-      <div>
-        {BlogPost.map((post) => {
-          return (
-            <div key={post.id}>
-              <div>{post.Title}</div>
-              <img src={post.img1} alt="" />
-              <div>{post.concent}</div>
-            </div>
-          );
-        })}
-      </div>
-      <img src={pic} alt="" />
+      <List>
+        {jsonData.map((post) => (
+          <div key={post.id}>
+            <PostTitle to={`/Blog/${post.id}`}>{post.Title}</PostTitle>
+            <Small>
+              <Author>By {post.author}</Author>
+              <Date>{post.date}</Date>
+            </Small>
+          </div>
+        ))}
+      </List>
     </BlogList>
   );
 }
