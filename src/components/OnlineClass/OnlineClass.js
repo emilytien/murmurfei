@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as Title } from "../img/HP_wb--08.svg";
-import YoutubeApi from "../../YoutubeApi.json";
+import YoutubeApi from "../../data/YoutubeApi.json";
 
 const OnlineClassList = styled.div`
   & > div {

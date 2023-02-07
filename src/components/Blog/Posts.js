@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import jsonData from "../../BlogPost";
+import jsonData from "../../data/BlogPost.json";
 import { useParams } from "react-router-dom";
 
 const Container = styled.div`

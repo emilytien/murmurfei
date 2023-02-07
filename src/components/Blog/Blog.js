@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as Title } from "../img/HP_wb--08.svg";
-import jsonData from "../../BlogPost";
+import jsonData from "../../data/BlogPost.json";
 import { Link } from "react-router-dom";
 
 const BlogList = styled.div`

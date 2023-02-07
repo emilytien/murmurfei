@@ -13,35 +13,33 @@ const Container = styled.div`
 
 const HeaderContainer = styled.div`
   font-size: 20px;
-  height: 100%;
+  height: ${({ fix }) => (fix ? "45px" : "70px")};
   width: 100%;
   text-align: center;
   background-color: #f1eaea;
   box-shadow: 0px 0px 5px #826541;
   position: relative;
-
+  transition: 1s;
   @media screen and (min-width: 767px) {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: 1s;
     font-size: ${({ fix }) => (fix ? "16px" : "18px")};
-    height: ${({ fix }) => (fix ? "45px" : "70px")};
   }
 `;
 
 const Burger = styled.div`
+  position: absolute;
   width: 30px;
   height: 30px;
-  position: fixed;
-  top: 18px;
-  left: 15px;
+  top: 50%;
+  left: 20px;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
   flex-wrap: nowrap;
-
-  div {
+  transform: translateY(-50%);
+  & > div {
     width: 30px;
     height: 3px;
     background-color: #c2b19c;
@@ -67,12 +65,12 @@ const Burger = styled.div`
 
 const Logo = styled(Link)`
   & > img {
-    padding-top: 10px;
+    transform: ${({ fix }) =>
+      fix ? "translate(0px, 5px)" : " translate(0px, 8px)"};
     max-width: ${({ fix }) => (fix ? "130px" : "200px")};
     transition: 1s;
   }
   @media screen and (min-width: 767px) {
-    padding-top: 0px;
     & > img {
       max-width: ${({ fix }) => (fix ? "130px" : "200px")};
       transition: 1s;
@@ -84,6 +82,7 @@ const NavBar = styled.div`
   width: 100%;
   height: 100vh;
   background-color: #e2d2d2;
+  top: ${({ fix }) => (fix ? "40px" : "70px")};
   position: fixed;
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
   transition: transform 0.3s ease-in-out;
