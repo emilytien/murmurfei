@@ -120,27 +120,7 @@ letter-spacing:3px;
   }
 `;
 
-const JoinUs = styled.a`
-  & > div {
-    height: 40px;
-    width: 100px;
-    line-height: 40px;
-    background-color: #fef4f5;
-    border-radius: 32px;
-    font-size: 14px;
-    letter-spacing: 2px;
-    font-weight: 550;
-    color: #9e605b;
-    margin: auto;
-    cursor: pointer;
-    transition: 0.3s;
-
-    &:hover {
-      box-shadow: 5px 3px 1px #9e605b;
-      transform: translate(3px, 3px);
-    }
-  }
-`;
+const JoinUs = styled.a``;
 
 const ContactOne = styled.div`
   & > div {

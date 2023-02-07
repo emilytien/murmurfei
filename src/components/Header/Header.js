@@ -218,14 +218,19 @@ const BackToTop = styled.div`
 
 function Header() {
   const { pathname } = useLocation();
+
+  // 開關漢堡
   const [open, setOpen] = useState(false);
 
+  // 回到最上方
   const ToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
+
+  // 滑行位置
   const [fix, setFix] = useState(false);
   const setFixed = () => {
     if (window.scrollY >= 200) {
