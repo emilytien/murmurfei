@@ -72,6 +72,8 @@ const Logo = styled(Link)`
   }
   @media screen and (min-width: 767px) {
     & > img {
+      transform: ${({ fix }) =>
+        fix ? "translate(0px, 2px)" : " translate(0px, 4px)"};
       max-width: ${({ fix }) => (fix ? "130px" : "200px")};
       transition: 1s;
     }
