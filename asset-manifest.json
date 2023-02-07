@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/murmurfei/static/js/main.9e41bcb4.chunk.js",
-    "main.js.map": "/murmurfei/static/js/main.9e41bcb4.chunk.js.map",
+    "main.js": "/murmurfei/static/js/main.77507aa1.chunk.js",
+    "main.js.map": "/murmurfei/static/js/main.77507aa1.chunk.js.map",
     "runtime-main.js": "/murmurfei/static/js/runtime-main.aa179499.js",
     "runtime-main.js.map": "/murmurfei/static/js/runtime-main.aa179499.js.map",
     "static/js/2.4c05c532.chunk.js": "/murmurfei/static/js/2.4c05c532.chunk.js",
@@ -23,6 +23,6 @@
   "entrypoints": [
     "static/js/runtime-main.aa179499.js",
     "static/js/2.4c05c532.chunk.js",
-    "static/js/main.9e41bcb4.chunk.js"
+    "static/js/main.77507aa1.chunk.js"
   ]
 }
