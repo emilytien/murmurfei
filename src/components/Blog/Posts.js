@@ -4,8 +4,15 @@ import { useParams } from "react-router-dom";
 
 const Container = styled.div`
   & > div {
-    width: 90%;
+    width: 80%;
     margin: auto;
+  }
+
+  @media screen and (min-width: 413px) {
+    & > div {
+      width: 90%;
+      margin: auto;
+    }
   }
 
   @media screen and (min-width: 767px) {
@@ -21,6 +28,56 @@ const PostTitle = styled.div`
   text-align: center;
   color: #9c6868;
   font-weight: 550;
+`;
+
+const Img = styled.div`
+  & > div {
+    display: flex;
+    justify-content: center;
+    align-item: center;
+  }
+`;
+
+const ImgUp = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  & > img {
+    width: 170px;
+  }
+
+  @media screen and (min-width: 413px) {
+    & > img {
+      width: 165px;
+    }
+  }
+
+  @media screen and (min-width: 767px) {
+    & > img {
+      width: 348px;
+    }
+  }
+`;
+
+const ImgDown = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+
+  & > img {
+    width: 170px;
+  }
+
+  @media screen and (min-width: 413px) {
+    & > img {
+      width: 330px;
+    }
+  }
+
+  @media screen and (min-width: 767px) {
+    & > img {
+      width: 232px;
+    }
+  }
 `;
 
 const Small = styled.div`
@@ -59,10 +116,22 @@ function Posts() {
   return (
     <Container>
       {jsonData
-        .filter((post) => post.id == id)
+        .filter((post) => post.id === id)
         .map((post) => (
           <div key={post.id}>
             <PostTitle>{post.Title}</PostTitle>
+            <Img>
+              <ImgUp>
+                <img src={post.img1} alt=""></img>
+                <img src={post.img2} alt=""></img>
+              </ImgUp>
+              <ImgDown>
+                <img src={post.img3} alt=""></img>
+                <img src={post.img4} alt=""></img>
+                <img src={post.img5} alt=""></img>
+              </ImgDown>
+            </Img>
+
             <Small>
               <Date>{post.date}</Date>
               <Author>By {post.author}</Author>

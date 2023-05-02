@@ -90,6 +90,19 @@ const Date = styled.div`
   font-size: 14px;
 `;
 
+const Img = styled.div`
+  & > img {
+    width: 150px;
+    padding: 10px 0px 15px 0px;
+  }
+
+  & > img {
+    @media screen and (min-width: 767px) {
+      width: 50px;
+    }
+  }
+`;
+
 function Blog() {
   return (
     <BlogList>
@@ -100,6 +113,9 @@ function Blog() {
       <List>
         {jsonData.map((post) => (
           <div key={post.id}>
+            <Img>
+              <img src={post.img1} alt=""></img>
+            </Img>
             <PostTitle to={`/Blog/${post.id}`}>{post.Title}</PostTitle>
             <Small>
               <Author>By {post.author}</Author>
